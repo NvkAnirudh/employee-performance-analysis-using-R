@@ -66,7 +66,13 @@ for (col in outlier_columns) {
   )
 }
 
+# Standardizing the numerical features
+numerical_columns <- names(df_clean)[sapply(df_clean, is.numeric)]
 
+df_standardized <- df_clean %>% mutate_at(vars(one_of(numerical_columns)), ~scale(.))
 
+head(df_standardized)
 
+# - Finally, checking data types of all the variables
+str(df_standardized)
 
