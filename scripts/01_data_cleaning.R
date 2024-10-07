@@ -66,6 +66,9 @@ for (col in outlier_columns) {
   )
 }
 
+# Exporting the clean data
+write.csv(df_clean, file='data/processed/clean_data.csv', row.names=FALSE)
+
 # Standardizing the numerical features
 numerical_columns <- names(df_clean)[sapply(df_clean, is.numeric)]
 
@@ -75,4 +78,7 @@ head(df_standardized)
 
 # - Finally, checking data types of all the variables
 str(df_standardized)
+getwd()
 
+# Exporting the standardized data frame
+write.csv(df_standardized, file='data/processed/standardized_data.csv', row.names=FALSE)
